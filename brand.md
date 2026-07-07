@@ -51,35 +51,153 @@ Start Campus is registered in Portugal, with number 515949841. Main office addre
 - Confiante e direto; números em destaque (1.2GW, PUE 1.10)
 - Termos técnicos corretos (PUE, WUE, HVO, MMR, MSA, GPU, HPC, AI)
 
+## Logos
+
+Variantes disponíveis no repo. Escolher pelo fundo:
+- **Cores** (`Full_Color`) sobre fundos claros OU sobre fotografias com área clara.
+  Preferir a versão a cores na **capa**, mesmo sobre imagem, quando há contraste.
+- **White** sobre fundos escuros (verde escuro, foto escura).
+- **Black** para monocromático/impressão.
+- **Inverse** (`Full_Color_Inverse`) para casos especiais de fundo escuro em que se
+  quer manter o verde da marca com o texto a branco.
+
+| Ficheiro | Tipo | Rácio (w:h) | h/w (mult. de altura) |
+|----------|------|-------------|------------------------|
+| `StartCampus_Horizontal_RGB_Full_Color.png` | Horizontal cor | 6.578:1 | 0.152 |
+| `StartCampus_Horizontal_RGB_White.png` | Horizontal branco | 6.578:1 | 0.152 |
+| `StartCampus_Horizontal_RGB_Black.png` | Horizontal preto | 6.575:1 | 0.152 |
+| `StartCampus_Horizontal_RGB_Full_Color_Inverse.png` | Horizontal cor/inverso | 6.578:1 | 0.152 |
+| `StartCampus_Vertical_RGB_Full_Color.png` | Vertical cor | 3.010:1 | 0.332 |
+| `StartCampus_Vertical_RGB_White.png` | Vertical branco | 3.010:1 | 0.332 |
+| `StartCampus_Vertical_RGB_Black.png` | Vertical preto | 3.010:1 | 0.332 |
+| `StartCampus_Vertical_RGB_Full_Color_Inverse.png` | Vertical cor/inverso | 3.010:1 | 0.332 |
+| `StartCampus_Favicon_RGB_Full_Color.png` | Marca/favicon cor | 0.96:1 | 1.042 |
+| `StartCampus_Favicon_RGB_White.png` | Marca/favicon branco | 0.96:1 | 1.042 |
+| `StartCampus_Favicon_RGB_Black.png` | Marca/favicon preto | 0.96:1 | 1.042 |
+
+**Regra anti-distorção (crítica):** ao colocar um logo, deriva SEMPRE a altura a
+partir da largura pelo multiplicador acima — nunca fixes uma altura "à mão".
+Fórmula: `altura = largura x (h/w)`. Ex.: logo horizontal com 2.6" de largura →
+`h = 2.6 x 0.152 = 0.395"`. Em pptxgenjs, uma função helper evita erros:
+`const logoH = w => +(w * 0.152).toFixed(3);` e depois `h: logoH(2.6)`.
+
+Recomendação de capa: usar `StartCampus_Horizontal_RGB_Full_Color.png` (versão a
+cores) quando o canto onde assenta o logo tem fundo suficientemente claro; caso o
+fundo seja escuro, `..._White.png`.
+
+## Rácios e dimensionamento de imagens (evitar esticar)
+
+Rácios nativos das imagens de conteúdo:
+- **Fotografias `Start_Campus (N).jpg` e `SC(N).jpg`**: 3:2 landscape (**1.500:1**). NÃO são 4:3.
+- **Renders / vistas gerais** (`ALL Campus*`, `ALL Campus_Render`, `SIN02_Render (1/2)`): widescreen **1.78–1.91:1**.
+- **`SIN02_Render (3).png`**: **1.5:1** (exceção entre os renders SIN02).
+- **Frames de vídeo `START CAMPUS 27-08 v2 4K_*`**: **16:9 (1.778:1)**, 2000×1125.
+
+`sizing: { type: 'cover' }` preserva o rácio no PowerPoint. **MAS** o LibreOffice
+(usado no QA) por vezes ignora o cover e estica a imagem quando o rácio do slot é
+muito diferente do da imagem — típico ao pôr uma foto 3:2 num slot em retrato
+(ex.: painel lateral full-height 6.0"×7.5" = 0.8:1). O resultado parece "ratio
+errado" mesmo com o código aparentemente correto.
+
+**Regra robusta:** quando o slot e a imagem têm rácios muito diferentes (sobretudo
+slots em retrato com fotos landscape), pré-recorta a imagem ao rácio exato do slot
+antes de a colocar, e passa-a **sem** `sizing`:
+
+```python
+from PIL import Image
+im = Image.open("foto.jpg"); w, h = im.size
+target = slot_w / slot_h            # ex.: 6.0/7.5 = 0.8
+cur = w / h
+if cur > target:                    # imagem mais larga -> cortar laterais
+    nw = int(h * target); x0 = (w - nw) // 2
+    im = im.crop((x0, 0, x0 + nw, h))
+else:                               # mais alta -> cortar topo/fundo
+    nh = int(w / target); y0 = (h - nh) // 2
+    im = im.crop((0, y0, w, y0 + nh))
+im.save("foto_crop.jpg", quality=90)
+```
+
+Depois: `slide.addImage({ path: 'foto_crop.jpg', x, y, w: slot_w, h: slot_h })`
+(sem `sizing`, porque o rácio já coincide). Para slots com rácio próximo do da
+imagem (ex.: full-bleed 13.33×7.5 = 1.777 com um render 1.78), `sizing: cover`
+continua a chegar.
+
 ## Imagens
 
-Imagens de conteúdo no repo (vistas do campus e renders). Preferir .jpg para
-fotografias em documentos Word (mais leve). Manter esta tabela quando se
-adicionam imagens cujo nome não é auto-explicativo.
+Imagens de conteúdo no repo. Descrições verificadas visualmente. Preferir .jpg
+para fotografias em documentos Word (mais leve). Em PPTX as URLs raw podem ir
+diretamente ao `addImage`. Manter esta tabela quando se adicionam imagens cujo
+nome não é auto-explicativo. Todas as `Start_Campus (N)` e `SC(N)` são 1.5:1
+salvo indicação.
+
+### Vistas gerais e renders (widescreen)
+
+| Ficheiro | Rácio | Descrição |
+|----------|-------|-----------|
+| `ALL Campus.png` | 1.91:1 | Aérea de todo o campus SINES na paisagem, edifícios brancos |
+| `ALL Campus with MW.png` | 1.78:1 | Aérea do campus anotada: SIN01 LIVE + SIN02–06 com potência (MW), seawater cooling, subestação VHV. Ótima para diagramas de capacidade/pipeline |
+| `ALL Campus_Render.jpg` | 1.875:1 | Render artístico da vista geral do campus completo |
+| `SIN02_Render (1).jpg` / `.png` | 1.875:1 | Render SIN02 ao nível do solo, verde e passeio (preferir a `.jpg`) |
+| `SIN02_Render (2).png` | 1.875:1 | Render SIN02, vista de conjunto com árvores |
+| `SIN02_Render (3).png` | 1.5:1 | Render SIN02 aéreo com o mar ao fundo |
+
+### Aéreas do edifício / localização (SC — 1.5:1)
 
 | Ficheiro | Descrição |
 |----------|-----------|
-| `ALL Campus.png` | Vista geral de todo o campus SINES |
-| `ALL Campus with MW.png` | Vista geral do campus com anotação de potência (MW) |
-| `ALL Campus_Render.jpg` | Render artístico da vista geral do campus |
-| `SIN02_Render (1).jpg` | Render do edifício SIN02 - vista 1 (preferir esta) |
-| `SIN02_Render (2).png` | Render do edifício SIN02 - vista 2 |
-| `SIN02_Render (3).png` | Render do edifício SIN02 - vista 3 |
-| `Start_Campus (5).jpg` | Aérea do data hall com paisagem verde - conteúdo + imagem à direita |
-| `Start_Campus (6).jpg` | Vista ao nível do solo pela fachada do data hall, oceano no horizonte - full-width |
-| `Start_Campus (7).jpg` | Perspetiva próxima do revestimento metálico exterior - detalhe de arquitetura |
-| `Start_Campus (8).jpg` | Aérea de SIN01 com o porto de Sines e oceano atrás - overview / localização |
-| `Start_Campus (9).jpg` | Aérea ampla de todo o campus junto ao mar - hero "the campus" |
-| `Start_Campus (10).jpg` | Aérea do campus na paisagem de Sines - contexto de localização |
-| `Start_Campus (11).jpg` | Pôr do sol na costa com o campus em primeiro plano - slide de fecho / "Thank You" |
-| `Start_Campus (12).jpg` | Aérea da costa de Sines, estuário e campus - geografia, sustentabilidade, arrefecimento por água do mar |
-| `Start_Campus (13).jpg` | Interior técnico com equipamento de arrefecimento (unidades azuis) - capacidade técnica |
-| `Start_Campus (14).jpg` | Passadiço coberto / corredor envidraçado com jardim - arquitetura, two-panel split |
-| `Start_Campus (15).jpg` | Corredor interior branco, perspetiva minimalista - divisor de secção |
-| `Start_Campus (16).jpg` | Interior de data hall vazio / cais de carga - "ready to deploy", build-out |
-| `Start_Campus (17).jpg` | Poste de sinalética exterior com edifício atrás - slide de detalhe / textura |
-| `Start_Campus (18).jpg` | Foto de grupo da equipa Start Campus - pessoas / cultura, "about us" |
-| `Start_Campus (19).jpg` | Logo Start Campus retroiluminado em parede verde escura - cover / brand / fecho |
+| `SC(0).jpg` | Aérea de SIN01 com o porto de Sines e o mar ao fundo - overview / localização |
+| `SC(1).jpg` | Aérea rasante da cobertura/fachada longitudinal, mar ao fundo |
+| `SC(2).jpg` | Aérea da fachada e pátio, mar ao horizonte |
+| `SC(3).jpg` | Aérea lateral do edifício junto à estrada de acesso, mar ao fundo |
+| `SC(4).jpg` | Aérea ampla do edifício na paisagem de Sines |
+
+### Fachadas, pátios e exteriores (Start_Campus — 1.5:1)
+
+| Ficheiro | Descrição |
+|----------|-----------|
+| `Start_Campus (5).jpg` | Fachada frontal envidraçada ao nível do pátio, céu azul - hero exterior |
+| `Start_Campus (6).jpg` | Fachada frontal com entrada, pátio pavimentado - full-width |
+| `Start_Campus (7).jpg` | Fachada frontal em perspetiva, nuvens - variação de (6) |
+| `Start_Campus (8).jpg` | Aérea do data hall SIN01 na paisagem - overview |
+| `Start_Campus (9).jpg` | Aérea ampla do data hall e estrada de acesso na paisagem de Sines |
+| `Start_Campus (10).jpg` | Fachada frontal com passadeira e entrada - exterior ao nível do solo |
+| `Start_Campus (11).jpg` | Fachada frontal com pátio amplo, vista frontal simétrica |
+| `Start_Campus (12).jpg` | Fachada envidraçada em perspetiva longitudinal, pátio |
+| `Start_Campus (13).jpg` | Fachada em perspetiva com árvores jovens no pátio |
+| `Start_Campus (14).jpg` | Fachada longitudinal ao nível do solo, grande angular do pátio |
+| `Start_Campus (15).jpg` | Pátio amplo com postes e edifício ao fundo |
+| `Start_Campus (16).jpg` | Fachada em contrapicado com canteiro de gravilha - detalhe/textura |
+| `Start_Campus (17).jpg` | Fachada envidraçada em perspetiva fechada - detalhe de arquitetura |
+| `Start_Campus (18).jpg` | Canto do edifício em contrapicado com pilar branco - arquitetura |
+| `Start_Campus (19).jpg` | Entrada envidraçada em perspetiva, revestimento metálico |
+| `Start_Campus (20).jpg` | Empena/topo do edifício com portas técnicas, pavimento |
+| `Start_Campus (21).jpg` | Empena do edifício, variação de (20) |
+| `Start_Campus (22).jpg` | Fachada longitudinal panorâmica, pátio largo |
+| `Start_Campus (23).jpg` | Fachada com pessoas ao fundo, escala humana - pátio |
+| `Start_Campus (24).jpg` | Fachada envidraçada em perspetiva ao nível do solo |
+| `Start_Campus (25).jpg` | Pátio com poste de sinalética e edifício ao fundo |
+| `Start_Campus (26).jpg` | **Interior**: sala de madeira clara com iluminação circular e logo Start Campus na parede - "about us" / cultura |
+| `Start_Campus (27).jpg` | **Interior**: mesma sala, ângulo alternativo com logo na parede |
+| `Start_Campus (28).jpg` | **Interior**: corredor branco minimalista em perspetiva - divisor de secção |
+
+### Frames de vídeo 4K (`START CAMPUS 27-08 v2 4K_*.jpg`, 16:9)
+
+~70 stills extraídos do vídeo institucional (2000×1125, 1.778:1). Cobrem material
+que as fotos não têm: **interiores técnicos** (equipamento elétrico/MV, corredores
+de racks), **o porto e a vila de Sines vistos de cima**, e **a costa/ondas**
+(útil para o tema de arrefecimento por água do mar). Os nomes são timestamps
+(`_01_00_01_180`, etc.), não descritivos - selecionar por inspeção visual. Ideais
+para slides técnicos, de localização e de sustentabilidade/mar. Descobrir a lista
+atual via `discover_images.py` ou pela API do repo.
+
+### Ícones temáticos (PNG numerados)
+
+`01_Sustainability`, `02_Location`, `03_Energy`, `04_Water`, `05_SolarPanel`,
+`06_WindTurbine`, `07_Cooling`, `08_Adaptability`, `08_Waves`, `10_Realiability`
+[sic], `11_Support`, `12_Security`, `13_Connectivity`, `14_DataCenter`,
+`15_Commnunity` [sic]. Usar como iconografia de secção. Nota: há dois `08_` e o
+`09` está em falta na numeração; os nomes `Realiability`/`Commnunity` contêm gralhas
+no ficheiro de origem - referenciar pelo nome exato do ficheiro.
 
 ## Contexto por skill
 
@@ -98,5 +216,6 @@ Decks de referência PPTX no repo:
 
 As cores, tipografia, convenção de títulos, rodapé, disclaimer e tom acima
 aplicam-se a **ambos** os contextos. Os logos são partilhados. As imagens de
-conteúdo (secção `## Imagens`) servem tanto documentos como apresentações — em
-Word preferir `.jpg`; em PPTX as URLs raw podem ir diretamente ao `addImage`.
+conteúdo servem tanto documentos como apresentações — em Word preferir `.jpg`; em
+PPTX as URLs raw podem ir diretamente ao `addImage`. Os rácios e a regra
+anti-distorção aplicam-se a ambos.
