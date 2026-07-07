@@ -124,11 +124,14 @@ continua a chegar.
 
 ## Imagens
 
-Imagens de conteúdo no repo. Descrições verificadas visualmente. Preferir .jpg
-para fotografias em documentos Word (mais leve). Em PPTX as URLs raw podem ir
-diretamente ao `addImage`. Manter esta tabela quando se adicionam imagens cujo
-nome não é auto-explicativo. Todas as `Start_Campus (N)` e `SC(N)` são 1.5:1
-salvo indicação.
+Imagens de conteúdo no repo. Descrições verificadas visualmente. Biblioteca
+**partilhada** por todas as skills Start Campus (`startcampus-pptx`,
+`startcampus-docx`, `startcampus-canva`). Preferir .jpg para fotografias em
+documentos Word (mais leve). Em PPTX as URLs raw podem ir diretamente ao
+`addImage`. No Canva servem de foto para os cards (sharing images) e podem ser
+carregadas como asset via o connector. Manter esta tabela quando se adicionam
+imagens cujo nome não é auto-explicativo. Todas as `Start_Campus (N)` e `SC(N)`
+são 1.5:1 salvo indicação.
 
 ### Vistas gerais e renders (widescreen)
 
@@ -198,6 +201,83 @@ atual via `discover_images.py` ou pela API do repo.
 `15_Commnunity` [sic]. Usar como iconografia de secção. Nota: há dois `08_` e o
 `09` está em falta na numeração; os nomes `Realiability`/`Commnunity` contêm gralhas
 no ficheiro de origem - referenciar pelo nome exato do ficheiro.
+
+## Sharing images (cards sociais)
+
+Cards de partilha reais no repo (raiz), servidos por `raw.githubusercontent.com`.
+São imagens achatadas (referência de estilo) - a fonte editável é o Canva
+(brand templates). **Standard: sempre 1200×630 px** (OG/LinkedIn/Facebook). Os
+ratios indicados abaixo são os dos ficheiros originais; ao criar templates novos,
+usar 1200×630. Usados pela skill `startcampus-canva`.
+
+### Layout A - Blog post card com foto (dominante)
+Painel esquerdo (branco ou lavanda `#F4F4FF`) + corte diagonal + foto à direita.
+Logo, label "BLOG POST", título com palavras-chave a verde, autor opcional
+("by Nome" verde / cargo preto), botão verde ("Read"/"Read now"/"Read More").
+
+| Ficheiro | Ratio orig. | Notas |
+|----------|-------------|-------|
+| `ROB_BLog.png` | 1.91 | Painel branco, título itálico, "by Rob Dunn / CEO", botão "Read" |
+| `BLOG_StartCampus_Sustainability_Planet.png` | 1.71 | Painel lavanda, botão "Read now" |
+| `BLOG_FBA_PTC.png` | 1.91 | Lavanda, autor "Fernando B. Azevedo / Head of Connectivity" |
+| `NIS2_BLOG.png` | 1.91 | Lavanda, autor "Fernando Fainzilber / Head of Security" |
+| `BLOG_OmerW.png` | 1.71 | Lavanda, autor "Omer Wilson / CMO" |
+| `Environmental_Awareness_Program.jpg` | 1.71 | Lavanda, sem label "BLOG POST", botão "Read More" |
+
+Campos autofill: `panel_color`, `label`, `title`, `author_name`, `author_role`,
+`photo` (imagem), `button_text`.
+
+### Layout B - Award / highlight
+Como A mas sem label e sem botão; título domina o painel (preto + verde).
+
+| Ficheiro | Ratio orig. | Notas |
+|----------|-------------|-------|
+| `DCD_Award.png` | 2.00 | Lavanda, "SIN01 Wins European Data Center Project of the Year 2025" |
+
+Campos autofill: `title`, `photo` (imagem).
+
+### Layout C - Press release (sem foto)
+Painel lavanda inteiro. Localização + data a verde, título a preto, botão
+"Press Release" em baixo à esquerda.
+
+| Ficheiro | Ratio orig. | Notas |
+|----------|-------------|-------|
+| `PR_Case_oct.jpg` | 1.71 | "Lisbon, Portugal – October 14, 2024" + título + botão "Press Release" |
+
+Campos autofill: `location_date`, `title`, `button_text`.
+
+### Layout D - Study / download (com thumbnail de documento)
+Título grande verde+preto à esquerda, parágrafo, botão "Download now",
+infográfico/documento à direita.
+
+| Ficheiro | Ratio orig. | Notas |
+|----------|-------------|-------|
+| `Copenhagen_Economics.png` | 1.71 | "Unlocking Portugal's Digital Potential: The €26 Billion Opportunity" |
+
+Campos autofill: `title`, `body`, `button_text`, `document_image` (imagem).
+
+### Layout E - Announcement com logos de parceiros (fundo escuro)
+Fundo `#0A3638`/preto, logo SC branco, título verde+branco, ícones decorativos
+verdes, logos de parceiros no rodapé. Logos de parceiros NÃO estão no repo -
+fornecidos pelo utilizador.
+
+| Ficheiro | Ratio orig. | Notas |
+|----------|-------------|-------|
+| `Share_Nvidia2.png` | 1.91 | "Nscale to Deliver 66,000+ NVIDIA Rubin GPUs to Microsoft…" + NSCALE/NVIDIA/Microsoft |
+
+Campos autofill: `title`, `partner_logos` (até 3 imagens, fornecidas pelo utilizador).
+
+### Layout F - Co-branding split / community
+Split 50/50 vertical com dois logos (sem texto), ou card lavanda com ícones
+decorativos, título verde e parágrafo centrado.
+
+| Ficheiro | Ratio orig. | Notas |
+|----------|-------------|-------|
+| `Feature-Image-EDP.jpg` | 1.91 | Split 50/50: logo SC (lavanda) \| logo parceiro (verde-escuro), sem texto |
+| `Gamma.png` | 1.71 | Lavanda, ícones, "GAMMA COMMUNITY" + título verde + parágrafo + botão "Know more" |
+
+Campos autofill (split): `partner_logo` (imagem). (community): `title`, `body`,
+`button_text`.
 
 ## Pessoas / Equipa
 
@@ -333,6 +413,7 @@ os seus assets via `fetch_brand.sh` com um contexto explícito.
 |--------------------|-------|--------------------------|
 | `pptx` | `startcampus-pptx` | Decks de referência `.pptx` + logos + imagens de conteúdo |
 | `docx` | `startcampus-docx` | Template `SC_Word_Design_Normal_Template_V4.dotx` + logos + imagens |
+| `canva` | `startcampus-canva` | Sharing images de referência (raiz) + logos; templates editáveis vivem no Canva (brand templates) |
 
 Decks de referência PPTX no repo:
 - `PPT_StartCampus_Presentation_30102024_PUBLIC.pptx` (master público, o mais completo)
@@ -340,7 +421,8 @@ Decks de referência PPTX no repo:
 - `SINES DC ONE PAGER PDF.pptx` (one-pager / fact-sheet)
 
 As cores, tipografia, convenção de títulos, rodapé, disclaimer e tom acima
-aplicam-se a **ambos** os contextos. Os logos são partilhados. As imagens de
-conteúdo servem tanto documentos como apresentações — em Word preferir `.jpg`; em
-PPTX as URLs raw podem ir diretamente ao `addImage`. Os rácios e a regra
-anti-distorção aplicam-se a ambos.
+aplicam-se a **todos** os contextos. Os logos são partilhados. As imagens de
+conteúdo são uma biblioteca partilhada pelas três skills — em Word preferir
+`.jpg`; em PPTX as URLs raw podem ir diretamente ao `addImage`; no Canva servem
+de foto para os cards e podem ser carregadas como asset via o connector. Os
+rácios e a regra anti-distorção (crop-to-cover) aplicam-se a todos.
