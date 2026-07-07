@@ -199,6 +199,131 @@ atual via `discover_images.py` ou pela API do repo.
 `09` está em falta na numeração; os nomes `Realiability`/`Commnunity` contêm gralhas
 no ficheiro de origem - referenciar pelo nome exato do ficheiro.
 
+## Pessoas / Equipa
+
+Retratos profissionais para slides "leadership team", bios, organograma, etc.
+Todos 4:3 landscape (1.333:1; originais de câmara 4032×3024 ou 2000×1500; versões
+web 1000×750). Enquadramento é retrato de meio-corpo em ambiente de escritório —
+para um slot quadrado ou vertical de card, aplicar a regra de pré-recorte (secção
+Rácios), tipicamente cortando as laterais e mantendo o rosto centrado.
+
+Bios abaixo são texto fornecido pelo Hugo (fonte interna). NÃO inventar dados
+biográficos — usar apenas o que está aqui. Bios em inglês (British), tom de marca.
+
+### Resolvido
+
+- **CFO confirmado: Nicolas Le Brouster** (`Nicolas_Le_Brouster.png`) — a foto na
+  página executiva manda.
+- **Manuel Macedo Santos** (`Manuel.jpg`) — **Strategy & Growth Director** (não CFO).
+  A bio fornecida menciona "Chief Financial Officer"; tratar o cargo atual como
+  Strategy & Growth Director e a menção a CFO na bio como desatualizada.
+
+### Equipa executiva
+
+| Ficheiro | Nome | Cargo | LinkedIn |
+|----------|------|-------|----------|
+| `Rob_DUnn.jpg` | Robert Dunn | Chief Executive Officer (CEO) | linkedin.com/in/robertnortondunn |
+| `Luis Rodrigues.jpg` | Luís Rodrigues | Chief Operating Officer (COO) | linkedin.com/in/rodrigues-luis |
+| `Nicolas_Le_Brouster.png` | Nicolas Le Brouster | Chief Financial Officer (CFO) | linkedin.com/in/nicolas-le-brouster |
+| `Caroline.jpg` | Caroline Romanski | Chief Corporate Officer | linkedin.com/in/carolineromanski |
+| `Daniela.jpg` | Daniela Silva e Sousa | General Counsel | linkedin.com/in/daniela-silva-e-sousa-51043321 |
+| `Warren-1.jpg` | Warren Barrie | Chief Revenue Officer (CRO) | linkedin.com/in/wbarrie |
+| `Omer2.jpg` | Omer Wilson | Chief Marketing Officer (CMO) | linkedin.com/in/omerwilson |
+| `Carla.jpg` | Carla Vieira Calisto | Chief People Officer | linkedin.com/in/carla-calisto-81b25b1 |
+
+### Liderança alargada (heads / leads)
+
+Nome de ficheiro coincide com o nome próprio → associação fiável. `LuisMarques`,
+`bill`, `fabio`, `filipe`, `marcio` existem no repo mas não têm bio nem cargo
+confirmado — não atribuir.
+
+| Ficheiro | Nome | Cargo |
+|----------|------|-------|
+| `ALberto.jpg` | Alberto Petermann | Head of Design and Delivery |
+| `Manuel.jpg` | Manuel Macedo Santos | Strategy & Growth Director |
+| `denis.jpg` | Denis Browne | R&D Lead |
+| (sem foto identificada) | Liviu Iusan | Head of Operations |
+| (sem foto identificada) | Jorge Paraíba | Head of Power |
+| (sem foto identificada) | Ieuan Spencer | Renewable Power Generation Lead |
+| (sem foto identificada) | India Oliveira | Sustainability Lead |
+| (sem foto identificada) | Fernando Fainzilber | Head of Security |
+| (sem foto identificada) | Fernando Azevedo | Head of Connectivity |
+
+### Bios (texto fornecido — usar tal e qual, não expandir com dados inventados)
+
+**Robert Dunn — CEO**
+
+- *Short:* Robert Dunn is Chief Executive Officer of Start Campus, developer of the industry-leading 1.2 GW SINES DC in Portugal. With over 15 years of experience in the data center industry he and the Lisbon-headquartered team are responsible for Europe's largest and most sustainable AI-ready data ecosystem. Before joining Start Campus, Dunn held key roles at Digital Realty and Laing O'Rourke, leading new-build, conversion, and fit-out data center projects.
+- *Extended:* Robert Dunn is the Chief Executive Officer of Start Campus, the developer of the 1.2 GW SINES DC in Portugal. With over 15 years of experience in the data center industry, Dunn joined Start Campus in 2022 as Head of Design and Delivery, where he played a pivotal role in advancing the SINES DC project, set to become Europe's largest and most sustainable AI-ready data ecosystem. Prior to Start Campus, Dunn held a key leadership role at Digital Realty, serving as Senior Construction Director, where he oversaw the development of data center projects across Europe. Dunn's career is marked by a consistent ability to drive transformation, successfully execute complex projects, and champion sustainable growth within the industry, resulting in Start Campus today offering Europe's most advanced AI-ready DC infrastructure.
+
+**Luís Rodrigues — COO**
+
+Luís Rodrigues joined Start Campus in 2021 and holds the role of Chief Operating Officer, with a seat on the Board of Directors. An engineer by training, he built deep data center experience over eight years at Google, holding data center operations and facility management roles across Spain, the Netherlands and Finland, before returning to his home country to join Start Campus, where he first served as Data Center Chief Operations Officer.
+
+**Manuel Macedo Santos — Strategy & Growth Director**
+
+Manuel Macedo Santos is Start Campus' Strategy & Growth Director and brings more than 15 years' experience in investment banking, private equity and management consulting at firms including Alantra, Eaglestone and Oliver Wyman.
+
+**Nicolas Le Brouster — Chief Financial Officer**
+
+Nicolas Le Brouster is Chief Financial Officer at Start Campus, an international finance executive with over 20 years' experience in finance leadership, operations and transactions across real assets and services in Europe, spanning France, Spain and the UK. Before joining Start Campus in 2025, he was Group Chief Financial Officer at Groupe PERIAL, and previously spent more than 15 years at GE Capital in senior finance roles including CFO France and FP&A Director Europe. A recognised business partner to CEOs and leadership teams, he combines strategic planning, business performance management and financial analysis with a strong track record in real estate acquisitions, financing, valuation and investment disposals.
+
+**Caroline Romanski — Chief Corporate Officer**
+
+Caroline Romanski draws on more than a decade at J.P. Morgan — most recently as Executive Director in EMEA Energy Investment Banking in London — in her role as Chief Corporate Officer at Start Campus, which she joined in 2023. She oversees business operations and heads business development for the SINES DC project.
+
+**Daniela Silva e Sousa — General Counsel**
+
+Daniela Silva e Sousa is Start Campus' General Counsel. With over 20 years of legal experience, she began as an M&A lawyer at Uría Menéndez Lisbon and, before recently joining Start Campus, she was Head of Legal Business at Banco Santander Portugal, after 10 years in the banking sector. She was recognised on the Portugal GC Powerlist 2023 by Legal 500.
+
+**Carla Calisto — Chief People Officer**
+
+Carla Calisto is Chief People Officer at Start Campus, which she joined in 2024. She brings more than two decades of senior HR experience, most recently as Chief People Officer and Interim GM at VML MAP, and previously in HR leadership roles at Sonae Sierra, Nike and Staples.
+
+**Denis Browne — R&D Lead**
+
+Denis Browne, R&D Lead at Start Campus, contributes his specialisation in data center infrastructure. Prior to joining Start Campus, he gained vast experience through his previous role as Regional Operations Director of Google Data Centers in addition to 17 years at Intel in various roles within their waferfab and data center facilities.
+
+**Alberto Petermann — Head of Design and Delivery**
+
+Alberto Petermann, Head of Design and Delivery, joined Start Campus in 2022 as Senior Program Manager. With a background in Industrial Engineering, Alberto has, since 2009, worked across the five continents with end users and developers on mission critical projects and throughout the whole life cycle of data centers. Alberto is certified AOS and ATD by Uptime Institute.
+
+**Liviu Iusan — Head of Operations**
+
+Liviu Iusan is the Head of Operations at Start Campus, joining in July of 2023. Having previously worked with Google for nearly a decade, he brings an in-depth understanding of and delivery in operations management, network communications, and systems infrastructure.
+
+**Jorge Paraíba — Head of Power**
+
+Jorge Paraíba has held the position of Head of Power at Start Campus since 2022, where he is responsible for the power strategy, energy management and commercial energy activity to efficiently supply renewable energy to the campus.
+
+**Ieuan Spencer — Renewable Power Generation Lead**
+
+Ieuan Spencer is the Renewable Power Generation Lead at Start Campus, joining in October 2023. An accomplished professional in the field of solar energy, in previous positions, he has worked extensively in the development, construction, and management of assets for international clients.
+
+**India Oliveira — Sustainability Lead**
+
+India Oliveira, as Sustainability Lead, is responsible for implementation of Start Campus' environmental strategy, ensuring that the company's core value of sustainability is at the center of its actions.
+
+**Fernando Fainzilber — Head of Security**
+
+Fernando Fainzilber, Head of Security, has a deep understanding of security in data center newbuilds and launches, having worked internationally for Amazon Web Services, most recently as Cluster Security Manager in Israel.
+
+**Fernando Azevedo — Head of Connectivity**
+
+Fernando Azevedo, Head of Connectivity, joined from Amazon Web Services in Dublin where he worked as Network Development Manager for the AWS global backbone. He previously worked for leading connectivity players, including Angola Cables.
+
+**Warren Barrie — Chief Revenue Officer**
+
+Warren Barrie is Chief Revenue Officer at Start Campus, an entrepreneurial senior executive with a career spanning sales and business development leadership across the data center industry. Before joining Start Campus in 2025, he was Senior Vice President at Kevlinx and Director of Data Centers at Bulk Data Centers, leading international business development for large-scale data center leasing, and earlier held Sales Director roles at Global Switch and Digital Realty. A hands-on strategic business leader, he focuses on building lasting, genuine relationships with clients and partners and on delivering exceptional, sustainable customer outcomes over the long term.
+
+**Omer Wilson — Chief Marketing Officer**
+
+Omer Wilson is Chief Marketing Officer at Start Campus, a marketing leader with extensive international experience across the data center and technology sectors. Before joining Start Campus in 2025, he was Founder and Consultant at Anatolia.Asia Consulting and Chief Marketing Officer at Qarbon Technologies, and has served on advisory boards including Açık Veri ve Teknoloji Derneği and Dokuz Eylül University. He leads Start Campus' marketing and communications for Europe's largest and most sustainable AI-ready data ecosystem.
+
+> Nota sobre nomes de ficheiro: inconsistentes (`Rob_DUnn`, `Warren-1`,
+> `Luis Rodrigues` com espaço, `ALberto` com L maiúsculo). Referenciar sempre pelo
+> nome exato do ficheiro e percent-encode nas URLs raw.
+
 ## Contexto por skill
 
 Este ficheiro serve os vários skills Start Campus. Cada skill descarrega
