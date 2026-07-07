@@ -65,3 +65,38 @@ adicionam imagens cujo nome não é auto-explicativo.
 | `SIN02_Render (1).jpg` | Render do edifício SIN02 - vista 1 (preferir esta) |
 | `SIN02_Render (2).png` | Render do edifício SIN02 - vista 2 |
 | `SIN02_Render (3).png` | Render do edifício SIN02 - vista 3 |
+| `Start_Campus (5).jpg` | Aérea do data hall com paisagem verde - conteúdo + imagem à direita |
+| `Start_Campus (6).jpg` | Vista ao nível do solo pela fachada do data hall, oceano no horizonte - full-width |
+| `Start_Campus (7).jpg` | Perspetiva próxima do revestimento metálico exterior - detalhe de arquitetura |
+| `Start_Campus (8).jpg` | Aérea de SIN01 com o porto de Sines e oceano atrás - overview / localização |
+| `Start_Campus (9).jpg` | Aérea ampla de todo o campus junto ao mar - hero "the campus" |
+| `Start_Campus (10).jpg` | Aérea do campus na paisagem de Sines - contexto de localização |
+| `Start_Campus (11).jpg` | Pôr do sol na costa com o campus em primeiro plano - slide de fecho / "Thank You" |
+| `Start_Campus (12).jpg` | Aérea da costa de Sines, estuário e campus - geografia, sustentabilidade, arrefecimento por água do mar |
+| `Start_Campus (13).jpg` | Interior técnico com equipamento de arrefecimento (unidades azuis) - capacidade técnica |
+| `Start_Campus (14).jpg` | Passadiço coberto / corredor envidraçado com jardim - arquitetura, two-panel split |
+| `Start_Campus (15).jpg` | Corredor interior branco, perspetiva minimalista - divisor de secção |
+| `Start_Campus (16).jpg` | Interior de data hall vazio / cais de carga - "ready to deploy", build-out |
+| `Start_Campus (17).jpg` | Poste de sinalética exterior com edifício atrás - slide de detalhe / textura |
+| `Start_Campus (18).jpg` | Foto de grupo da equipa Start Campus - pessoas / cultura, "about us" |
+| `Start_Campus (19).jpg` | Logo Start Campus retroiluminado em parede verde escura - cover / brand / fecho |
+
+## Contexto por skill
+
+Este ficheiro serve os vários skills Start Campus. Cada skill descarrega
+os seus assets via `fetch_brand.sh` com um contexto explícito.
+
+| Contexto (`--for`) | Skill | Assets esperados no repo |
+|--------------------|-------|--------------------------|
+| `pptx` | `startcampus-pptx` | Decks de referência `.pptx` + logos + imagens de conteúdo |
+| `docx` | `startcampus-docx` | Template `SC_Word_Design_Normal_Template_V4.dotx` + logos + imagens |
+
+Decks de referência PPTX no repo:
+- `PPT_StartCampus_Presentation_30102024_PUBLIC.pptx` (master público, o mais completo)
+- `2025 09 04_Introduction to Start Campus and SIN02-06.pptx` (intro / pipeline SIN02-06)
+- `SINES DC ONE PAGER PDF.pptx` (one-pager / fact-sheet)
+
+As cores, tipografia, convenção de títulos, rodapé, disclaimer e tom acima
+aplicam-se a **ambos** os contextos. Os logos são partilhados. As imagens de
+conteúdo (secção `## Imagens`) servem tanto documentos como apresentações — em
+Word preferir `.jpg`; em PPTX as URLs raw podem ir diretamente ao `addImage`.
