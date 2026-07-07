@@ -50,3 +50,18 @@ Start Campus is registered in Portugal, with number 515949841. Main office addre
 - Documentos internos PT em português de Portugal (PT-PT)
 - Confiante e direto; números em destaque (1.2GW, PUE 1.10)
 - Termos técnicos corretos (PUE, WUE, HVO, MMR, MSA, GPU, HPC, AI)
+
+## Imagens
+
+Imagens de conteúdo no repo (vistas do campus e renders). Preferir .jpg para
+fotografias em documentos Word (mais leve). Manter esta tabela quando se
+adicionam imagens cujo nome não é auto-explicativo.
+
+| Ficheiro | Descrição |
+|----------|-----------|
+| `ALL Campus.png` | Vista geral de todo o campus SINES |
+| `ALL Campus with MW.png` | Vista geral do campus com anotação de potência (MW) |
+| `ALL Campus_Render.jpg` | Render artístico da vista geral do campus |
+| `SIN02_Render (1).jpg` | Render do edifício SIN02 - vista 1 (preferir esta) |
+| `SIN02_Render (2).png` | Render do edifício SIN02 - vista 2 |
+| `SIN02_Render (3).png` | Render do edifício SIN02 - vista 3 |
