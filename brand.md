@@ -414,6 +414,7 @@ os seus assets via `fetch_brand.sh` com um contexto explícito.
 | `pptx` | `startcampus-pptx` | Decks de referência `.pptx` + logos + imagens de conteúdo |
 | `docx` | `startcampus-docx` | Template `SC_Word_Design_Normal_Template_V4.dotx` + logos + imagens |
 | `canva` | `startcampus-canva` | Sharing images de referência (raiz) + logos; templates editáveis vivem no Canva (brand templates) |
+| `xlsx` | `startcampus-xlsx` | `brand.md` + logos (sem template nem decks - as folhas constroem-se de raiz) |
 
 Decks de referência PPTX no repo:
 - `PPT_StartCampus_Presentation_30102024_PUBLIC.pptx` (master público, o mais completo)
