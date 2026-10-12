@@ -138,7 +138,7 @@ são 1.5:1 salvo indicação.
 | Ficheiro | Rácio | Descrição |
 |----------|-------|-----------|
 | `ALL Campus.png` | 1.91:1 | Aérea de todo o campus SINES na paisagem, edifícios brancos |
-| `ALL Campus with MW.png` | 1.78:1 | Aérea do campus anotada: SIN01 LIVE + SIN02–06 com potência (MW), seawater cooling, subestação VHV. Ótima para diagramas de capacidade/pipeline |
+| `ALL Campus with MW.png` | 1.80:1 | Aérea do campus anotada: SIN01 LIVE (37.5 MW), SIN02 Contracted, SIN03 200 MW, SIN04 Under Contract, SIN05–06 200 MW, seawater cooling, subestação VHV. Ótima para diagramas de capacidade/pipeline |
 | `ALL Campus_Render.jpg` | 1.875:1 | Render artístico da vista geral do campus completo |
 | `SIN02_Render (1).jpg` / `.png` | 1.875:1 | Render SIN02 ao nível do solo, verde e passeio (preferir a `.jpg`) |
 | `SIN02_Render (2).png` | 1.875:1 | Render SIN02, vista de conjunto com árvores |
